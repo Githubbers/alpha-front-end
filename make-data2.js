@@ -12,23 +12,23 @@ var temp=[];
 var EveryoneCommentsData = [];
 
 function makeEveryoneData(){
-    
+
     for (var i=0; i<1345; i++){
         for (var key in dmtldata.dmtldata.Cohort1.students) {
 
             temp = dmtldata.dmtldata.Cohort1.students[key].CommentsData;
-            
+
             // console.log(temp[i][1] );
-            
+
             hourlySum += temp[i][1];
             // console.log(hourlySum);
         }
-        
+
         dataPoint = [ timeZero+(3600000*i) , hourlySum ];
         EveryoneCommentsData.push(dataPoint);
         hourlySum = 0;
         console.log(dataPoint);
-           
+
     }
     return EveryoneCommentsData;
     // console.log(EveryonePRdata);
@@ -68,3 +68,5 @@ function makeEveryoneData(){
 
 
 fs.writeFileSync('somedata.json', JSON.stringify(makeEveryoneData()) );
+
+//This is a completely worthless comment just so something can be changed in git.
